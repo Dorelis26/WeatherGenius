@@ -26,36 +26,46 @@
     <section>
       <a href="index.html"><i class="fa fa-arrow-left " aria-hidden="true"></i></a>
       <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-6 position-relative">
-            <label for="validationTooltip03" class="form-label">Location</label>
-            <input type="text" class="form-control" required id="validationTooltip03">
-            <div class="invalid-tooltip">
-                Please provide a valid city.
+        <div class="row g-3 needs-validation">
+            <div class="col-md-3 position-relative">
+                <label for="validationTooltip03" class="form-label">Location</label>
+                <input type="text" class="form-control" required id="validationTooltip03">
+                <div class="invalid-tooltip">
+                    Please provide a valid city.
+                </div>
+            </div>
+            
+            <div class="col-md-3 position-relative">
+                <label for="validationTooltip05" class="form-label">Start Date</label>
+                <input type="date" class="form-control" required id="validationTooltip05">
+                <div class="invalid-tooltip">
+                    Please provide a valid start date.
+                </div>
+            </div>
+        
+            <div class="col-md-3 position-relative">
+                <label for="validationTooltip07" class="form-label">End Date</label>
+                <input type="date" class="form-control" required id="validationTooltip07">
+                <div class="invalid-tooltip">
+                    Please provide a valid end date.
+                </div>
+            </div>
+            
+            <div class="col-md-3 position-relative d-flex align-items-end">
+                <button class="btn btn2 btn-warning ms-2" type="submit">Get News</button>
             </div>
         </div>
         
-        <div class="col-md-3 position-relative">
-            <label for="validationTooltip05" class="form-label">Date</label>
-            <input type="date" class="form-control" required id="validationTooltip05">
-            <div class="invalid-tooltip">
-                Please provide a valid date.
-            </div>
-        </div>
-        
-        <div class="col-md-3 position-relative d-flex align-items-end">
-            <button class="btn btn2 btn-warning ms-2" type="submit">Get News</button>
-        </div>
     </form>
     <table class="table caption-top">
         <caption>News Results
         </caption>
         <thead>
           <tr>
-            <th scope="col">Imgages</th>
+            
             <th scope="col">Title</th>
             <th scope="col">Source</th>
             <th scope="col">Description</th>
-            <th scope="col">Content</th>
             <th scope="col">Link</th>
           </tr>
         </thead>
