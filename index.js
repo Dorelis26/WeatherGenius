@@ -195,7 +195,7 @@ function locationForm() {
 
 		getWeatherData(URL);
 		let openWeatherReport = {
-			url: 'http://api.weatherapi.com/v1/history.json?',
+			url: 'https://api.weatherapi.com/v1/history.json?',
 			key: 'key=217c2c3bcd0e45f693f134151242405&',
 			alerts: 'alerts=no&aqi=no&',
 			dt: 'dt=' + formattedDate + '&', // Update this to your desired date
