@@ -19,6 +19,8 @@ const cardBody = document.querySelector(".card-body");
 const navbar = document.querySelector(".navbar");
 let mapShown = false;
 
+
+
 const tDate = new Date();
 
 dateAlert.innerHTML = tDate;
@@ -223,6 +225,57 @@ locationForm();
 
 alerts.addEventListener('submit', (evt) => {
     evt.preventDefault();
+    function displayAlerts(alertsData) {
+        // Select the containers where alert information will be inserted
+        const eventsContainer = document.querySelector('.events');
+        const headlineContainer = document.querySelector('.headline');
+        const descriptionContainer = document.querySelector('.description');
+        const alertEndContainer = document.querySelector('.alertEnd');
+    
+        // Clear any existing content in the containers
+        eventsContainer.textContent = '';
+        headlineContainer.textContent = '';
+        descriptionContainer.textContent = '';
+        alertEndContainer.textContent = ''; // Clear any existing alert end information
+    
+        // Variable to track if alert ends has been added
+        let alertEndAdded = false;
+    
+        // Iterate through the alerts data and fill in the HTML sections
+        alertsData.forEach((alert, index) => {
+            // Fill in the event type
+            const eventType = document.createElement('p');
+            eventType.classList.add('mb-1', 'events');
+            eventType.textContent = alert.event;
+            eventsContainer.appendChild(eventType);
+    
+            // Fill in the headline (short description)
+            const headline = document.createElement('p');
+            headline.classList.add('mb-1', 'headline');
+            headline.textContent = alert.headline;
+            headlineContainer.appendChild(headline);
+    
+            // Fill in the full description
+            const fullDescription = document.createElement('p');
+            fullDescription.classList.add('mb-1', 'description');
+            fullDescription.textContent = alert.description; // Use the description field from the API
+            descriptionContainer.appendChild(fullDescription);
+    
+            // Fill in the alert end information only once
+            if (!alertEndAdded && index === alertsData.length - 1) {
+                const alertEnd = document.createElement('small');
+                alertEnd.classList.add('text-body-secondary');
+                alertEnd.textContent = 'Alert ends: ' + new Date(alert.ends).toLocaleString(); // Format the end date as desired
+                alertEndContainer.appendChild(alertEnd);
+                alertEndAdded = true; // Set alertEndAdded to true once added
+            }
+        });
+    }
+    
+    
+    
+    
+    
 
     URL =
         'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/' +
